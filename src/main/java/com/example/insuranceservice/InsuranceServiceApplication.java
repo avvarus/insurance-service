@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,13 +23,22 @@ public class InsuranceServiceApplication {
     @GetMapping(value = "/getUpdatedPlans")
     public List<String> getAllPlans() {
 
+        return getStrings();
+    }
+
+    /**
+     * collection of strings
+     *
+     * @return
+     */
+    private List<String> getStrings() {
         return Stream.of("Amica",
                 "Geico",
                 "State Farm",
                 "Progressive",
                 "New Launch 001",
-                "New Launch 002").collect(Collectors.toList());
-
+                "New Launch 002").
+                collect(Collectors.toList());
     }
 
 
